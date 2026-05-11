@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bicitaxis Aragón - FleetOps Command</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#a75a00",
+                        "outline": "#707a6c",
+                        "on-primary-container": "#cbffc2",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#40493d",
+                        "surface-dim": "#cddbf0",
+                        "secondary": "#4f6073",
+                        "inverse-primary": "#88d982",
+                        "on-primary-fixed": "#002204",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "on-surface": "#0f1c2b",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d6e4f9",
+                        "on-secondary-container": "#556679",
+                        "on-tertiary-fixed": "#2f1500",
+                        "tertiary": "#844600",
+                        "inverse-surface": "#243141",
+                        "surface-tint": "#1b6d24",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdcc3",
+                        "surface-bright": "#f8f9ff",
+                        "primary-container": "#2e7d32",
+                        "on-background": "#0f1c2b",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-secondary-fixed": "#0b1d2d",
+                        "outline-variant": "#bfcaba",
+                        "surface-variant": "#d6e4f9",
+                        "primary": "#0d631b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "secondary-fixed": "#d2e4fb",
+                        "secondary-container": "#d2e4fb",
+                        "primary-fixed-dim": "#88d982",
+                        "surface-container-low": "#eef4ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#dce9fe",
+                        "secondary-fixed-dim": "#b7c8de",
+                        "primary-fixed": "#a3f69c",
+                        "background": "#f8f9ff",
+                        "on-tertiary-container": "#ffeee4",
+                        "on-secondary-fixed-variant": "#38485a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "sidebar-width": "260px",
+                        "container-max-width": "1440px",
+                        "margin-mobile": "1rem",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1.5rem",
+                        "margin-desktop": "2rem",
+                        "stack-lg": "2rem"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- SideNavBar Component -->
+<aside class="w-sidebar-width h-screen fixed left-0 top-0 bg-inverse-surface dark:bg-on-background border-r border-outline-variant flex flex-col h-full py-stack-md">
+<div class="px-6 mb-10">
+<h1 class="text-headline-md font-headline-md text-surface-container-lowest">Bicitaxis Aragón</h1>
+<p class="text-surface-variant font-body-md text-body-md opacity-70">Base Aragón, México</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Tab: Dashboard -->
+<a class="bg-tertiary-container text-on-tertiary-container rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="text-surface-variant hover:bg-surface-variant/10 rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">pedal_bike</span>
+<span class="font-body-md text-body-md">Inventario de Unidades</span>
+</a>
+<a class="text-surface-variant hover:bg-surface-variant/10 rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">group</span>
+<span class="font-body-md text-body-md">Control de Choferes</span>
+</a>
+<a class="text-surface-variant hover:bg-surface-variant/10 rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span class="font-body-md text-body-md">Ingresos</span>
+</a>
+<a class="text-surface-variant hover:bg-surface-variant/10 rounded-lg mx-2 my-1 flex items-center px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">tire_repair</span>
+<span class="font-body-md text-body-md">Mantenimiento</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/20 pt-4">
+<a class="text-surface-variant hover:bg-surface-variant/10 rounded-lg mx-2 my-1 flex items-center px-4 py-2 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">support</span>
+<span class="font-body-md text-body-md">Soporte</span>
+</a>
+<a class="text-surface-variant hover:bg-surface-variant/10 rounded-lg mx-2 my-1 flex items-center px-4 py-2 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+<span class="font-body-md text-body-md">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Component -->
+<header class="ml-sidebar-width h-16 sticky top-0 z-40 bg-surface dark:bg-background border-b border-outline-variant flex items-center justify-between px-margin-desktop">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-body-md" placeholder="Buscar unidades, choferes o reportes..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:bg-surface-container-low p-2 rounded-full transition-all">notifications</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:bg-surface-container-low p-2 rounded-full transition-all">settings</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-bold text-label-bold active:opacity-70 transition-transform active:scale-95">
+                DISPATCH
+            </button>
+<div class="flex items-center gap-3 border-l border-outline-variant pl-6">
+<div class="text-right">
+<p class="font-label-bold text-label-bold text-on-surface">Administrador</p>
+<p class="text-label-sm text-outline">Base Aragón</p>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBztQNOZRC7XHLC9cF3vYWBpu-JQbrUmuxV6OoufjA0lvkDqPNeUAyB_gtfwsVLe0EHrUQJkq9XMixXlgU99VUWqnTfLL0fl-zrmc9c5f11mEgpOd0ustb4DDFkG-jYVLl6wF6lWhgmoiqVrdugVGko-BdqUIjZSTaPDsNg5vppwA-jRCCGOiWePPXdPMQuyWib4jhURc7RhP3VZiOAwVuC49ITKFI57F14igx-C8kSmuThJJeyfn3xdNoJLw0fiYwPHzpHfyprdw"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-sidebar-width p-margin-desktop space-y-stack-lg">
+<!-- Header & Date -->
+<div class="flex justify-between items-end">
+<div>
+<p class="text-primary font-label-bold text-label-bold uppercase tracking-wider mb-1">Estado Operativo</p>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Resumen de Flota</h2>
+</div>
+<div class="flex gap-stack-sm">
+<div class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant px-4 py-2 rounded-lg text-body-md text-on-surface">
+<span class="material-symbols-outlined text-outline">calendar_today</span>
+<span>Hoy: 24 Oct, 2023</span>
+</div>
+<button class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant px-4 py-2 rounded-lg text-body-md text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-outline">filter_list</span>
+<span>Filtros</span>
+</button>
+</div>
+</div>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant flex flex-col justify-between h-32 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div class="bg-primary-container/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">pedal_bike</span>
+</div>
+<span class="text-primary font-label-bold text-label-bold bg-primary-container/10 px-2 py-1 rounded">+12%</span>
+</div>
+<div>
+<p class="text-outline font-label-bold text-label-bold">Unidades Activas</p>
+<p class="text-headline-md font-headline-md text-on-surface">15/20</p>
+</div>
+<div class="absolute bottom-0 left-0 h-1 bg-primary w-3/4"></div>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant flex flex-col justify-between h-32 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div class="bg-error-container/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-error">tire_repair</span>
+</div>
+<span class="text-error font-label-bold text-label-bold bg-error-container/20 px-2 py-1 rounded">Crítico</span>
+</div>
+<div>
+<p class="text-outline font-label-bold text-label-bold">En Taller / Reparación</p>
+<p class="text-headline-md font-headline-md text-on-surface">3</p>
+</div>
+<div class="absolute bottom-0 left-0 h-1 bg-error w-1/4"></div>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant flex flex-col justify-between h-32 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div class="bg-secondary-container/30 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary">map</span>
+</div>
+<span class="text-secondary font-label-bold text-label-bold bg-secondary-container/30 px-2 py-1 rounded">Estable</span>
+</div>
+<div>
+<p class="text-outline font-label-bold text-label-bold">Viajes del Día</p>
+<p class="text-headline-md font-headline-md text-on-surface">142</p>
+</div>
+<div class="absolute bottom-0 left-0 h-1 bg-secondary w-1/2"></div>
+</div>
+<div class="bg-surface-container-lowest p-stack-md rounded-xl border border-outline-variant flex flex-col justify-between h-32 relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div class="bg-tertiary-fixed/30 p-2 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">payments</span>
+</div>
+<span class="text-tertiary font-label-bold text-label-bold bg-tertiary-fixed/30 px-2 py-1 rounded">Óptimo</span>
+</div>
+<div>
+<p class="text-outline font-label-bold text-label-bold">Recaudación Estimada</p>
+<p class="text-headline-md font-headline-md text-on-surface">$2,450 MXN</p>
+</div>
+<div class="absolute bottom-0 left-0 h-1 bg-tertiary-container w-full"></div>
+</div>
+</div>
+<!-- Bento Grid Section -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Main Data Table Container -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="text-body-lg font-headline-md text-on-surface">Detalle de Flota</h3>
+<button class="text-primary font-label-bold text-label-bold border border-primary px-4 py-1.5 rounded-lg hover:bg-primary/5 transition-colors">Exportar CSV</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container text-outline-variant border-b border-outline-variant">
+<tr>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant">ID UNIDAD</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant">CHOFER ASIGNADO</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant">ZONA DE OPERACIÓN</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant">ESTADO</th>
+<th class="px-6 py-4 font-label-bold text-label-bold text-on-surface-variant">ACCIONES</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant" id="tabla-bicitaxis">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5 font-body-md text-body-md font-bold">BC-001</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Juan" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ22UqScUvZ4g1bCYhgDlyyVFka9QVQb9jpryXY540XrQ53WZ1tiDx4-s0FCclQYnvoPsnZxEjQCbOxFZcFSTX4T9h-4BJdPzHHwZvsru-UGXbE7bWdArv3hOo1yP1TBXIYxhk9pN0y454aDwJImcs7ppb2M5rjwJt3cb_20yx_K30zvXsYJupAplzFlLbxakNk_2DlqAN_yvaklgeXDMybo-sUPNi7yI0scMM-1haQERJRNx0wpuTdvtc0HoRP_yYir0RV4doKA"/>
+<span class="font-body-md text-body-md">Juan Pérez</span>
+</div>
+</td>
+<td class="px-6 py-5 font-body-md text-body-md">Base Metro</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container/20 text-primary uppercase">Active</span>
+</td>
+<td class="px-6 py-5">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5 font-body-md text-body-md font-bold">BC-002</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Carlos" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgoMwR7hAg_PiAOPN4HIk68T70vGoONUUVpDiH6Ef1fnRSWcjGS887eCTehoSOYjRVQQ34fQnDUNiChRbaW4mdnJ-U5FJmHJ2Tar0PcsI-u2eyk7SEmwlgh5_p6CERerslh0ylyU4XkKLdfXWCSMx8XDtiM1zgj2oAcPfsg7moqUSZwUQFmpkjIDDciUpq_yyD-kxWOkk3z3IOh1P4_hhCecbHkCRb_kcmEtWBXb-ZFMCF7Me45ZZp1XxwFS3xKlgTo-pu1uGiUw"/>
+<span class="font-body-md text-body-md">Carlos Ruiz</span>
+</div>
+</td>
+<td class="px-6 py-5 font-body-md text-body-md">Base Mercado</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container/30 text-error uppercase">En Taller</span>
+</td>
+<td class="px-6 py-5">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-5 font-body-md text-body-md font-bold">BC-003</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Alberto" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqwy8ck6AQOAC2lTnPeXl47amIgy4mj4tngSqGgrgBAjqkdtYDrXQ41yDVSSRmP_vJesxrUQRkjbA99GCtVOW6HcVpn0ONZIiDRrx82tHdIhHshQQL66nQsepgImYhriJgJMdPpasaCqG0rdujQetlYn33lRQFop_uj0WK0MzMlc0Mh0uEP8n9U0px_7zy85vw6X3bxo90md7jJlvYvi05HD6irA9wsIRvyGSyDjxG3ihjAkvtYYJX5IBQsUmwWuNrIS3o9Y6woQ"/>
+<span class="font-body-md text-body-md">Alberto Meza</span>
+</div>
+</td>
+<td class="px-6 py-5 font-body-md text-body-md">Ruta Libre</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-tertiary-fixed/30 text-tertiary-container uppercase">Descanso</span>
+</td>
+<td class="px-6 py-5">
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Side Bento Cards -->
+<div class="col-span-12 lg:col-span-4 space-y-gutter">
+<!-- Map Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden h-64 relative group shadow-sm">
+<div class="absolute inset-0 bg-slate-900/10 z-10"></div>
+<img class="w-full h-full object-cover grayscale opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="A detailed digital map interface of a metropolitan urban area, showing various points of interest and transportation routes. The map uses a sophisticated dark-mode aesthetic with muted grays and blacks, highlighted by vibrant green and amber terminal-style markers. The lighting is low-key and professional, suitable for a high-end logistics management dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDftR1BVa0Xht3AZb-NZNbZzy-CoNH_FdYeUz6S6UG5-_Do000s_ZNHmWYEicaoqo84KRrwH2BSDP-o3I02LU0uhFIiJPkWTBEfjRO0uc0S2eJL5C_AeC_rq8yeEPn8o9stifzZ0ugVglnrmYCNbCiXqxt2bJvK9QE6qD6wysrv_WFFMrEGQWa2Tjibhy7gjxYLQ_tzrO6vgODF74NG2Y1F9JjsZ827mU_EMoDaqLkXdP3P2BvvH1eyYtCBxaaJGhhjbQoHKhquPA"/>
+<div class="absolute top-4 left-4 z-20">
+<div class="bg-on-background/90 text-surface-container-lowest px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-bold font-label-bold">15 UNIDADES EN VIVO</span>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 z-20">
+<button class="bg-surface-container-lowest p-2 rounded-lg shadow-lg border border-outline-variant flex items-center gap-2 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface">open_in_full</span>
+<span class="font-label-bold text-label-bold">Expandir Mapa</span>
+</button>
+</div>
+</div>
+<!-- Critical Alerts Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-body-lg font-headline-md text-on-surface">Alertas Críticas</h3>
+<span class="material-symbols-outlined text-error">report</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 items-start p-3 bg-error-container/10 rounded-lg border-l-4 border-error">
+<span class="material-symbols-outlined text-error mt-1">warning</span>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">BC-002: Falla Mecánica</p>
+<p class="text-label-sm text-outline">Reportado hace 15 mins</p>
+</div>
+</div>
+<div class="flex gap-4 items-start p-3 bg-tertiary-fixed/10 rounded-lg border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary mt-1">schedule</span>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Licencia Próxima a Vencer</p>
+<p class="text-label-sm text-outline">Juan Pérez - 3 días restantes</p>
+</div>
+</div>
+<button class="w-full py-2 text-center text-label-bold font-label-bold text-outline hover:text-on-surface transition-colors border-t border-outline-variant pt-4 mt-2">
+                            Ver Todas las Alertas
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Data Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-primary-container p-6 rounded-xl text-on-primary-container flex flex-col justify-between h-48 shadow-lg">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl opacity-50">add_task</span>
+<button class="bg-on-primary-container text-primary p-2 rounded-full shadow-md">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<div>
+<h4 class="text-headline-md font-headline-md">Nueva Inspección</h4>
+<p class="opacity-80 text-body-md font-body-md">Registrar revisión diaria de unidades</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl flex flex-col justify-between h-48 shadow-sm">
+<div>
+<h4 class="text-body-lg font-headline-md text-on-surface mb-2">Salud de Flota</h4>
+<div class="flex items-end gap-2">
+<span class="text-headline-lg font-headline-lg text-primary">94.2%</span>
+<span class="text-primary font-label-bold text-label-bold mb-2">↑ 2.4%</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[94.2%]"></div>
+</div>
+<p class="text-outline text-label-sm">Promedio de operatividad semanal</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl flex flex-col justify-between h-48 shadow-sm relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-body-lg font-headline-md text-on-surface mb-2">Base Aragón</h4>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+<span class="text-body-md font-body-md text-outline">Ciudad de México, MEX</span>
+</div>
+</div>
+<div class="absolute -right-12 -bottom-12 opacity-10">
+<span class="material-symbols-outlined text-[160px] text-on-surface">hub</span>
+</div>
+<div class="flex gap-4 relative z-10">
+<div class="bg-surface-container-low px-3 py-2 rounded-lg">
+<p class="text-label-sm text-outline">Turno Actual</p>
+<p class="font-label-bold text-label-bold text-on-surface">Vespertino</p>
+</div>
+<div class="bg-surface-container-low px-3 py-2 rounded-lg">
+<p class="text-label-sm text-outline">Clima</p>
+<p class="font-label-bold text-label-bold text-on-surface">24°C Despejado</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

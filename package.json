@@ -1,0 +1,25 @@
+{
+  "name": "bicitaxi-flota-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard para el control de Bicitaxis en Cd. Nezahualcóyotl",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianmadariaga07/Bicitaxi-Flota-Dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ianmadariaga07/Bicitaxi-Flota-Dashboard/issues"
+  },
+  "homepage": "https://github.com/ianmadariaga07/Bicitaxi-Flota-Dashboard#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.22.3"
+  }
+}
