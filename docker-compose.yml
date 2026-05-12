@@ -20,7 +20,7 @@ services:
     image: mysql:8.0
     container_name: bicitaxi_db
     ports:
-      - "3306:3306"
+      - "3307:3307"
     env_file:
       - .env
     environment:
@@ -30,7 +30,7 @@ services:
       - bicitaxi_network
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./databases/init.sql:/docker-entrypoint-initdb.d/init.sql
 networks:
   bicitaxi_network:
     driver: bridge
